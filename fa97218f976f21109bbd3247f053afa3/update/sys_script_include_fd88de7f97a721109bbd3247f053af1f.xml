@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="sys_script_include">
+    <sys_script_include action="INSERT_OR_UPDATE">
+        <access>package_private</access>
+        <active>true</active>
+        <api_name>x_750177_now_utah.DemoItUtils</api_name>
+        <caller_access/>
+        <client_callable>false</client_callable>
+        <description>Utils Script Include for the Demo application.&#13;
+</description>
+        <name>DemoItUtils</name>
+        <script><![CDATA[var DemoItUtils = Class.create();
+DemoItUtils.prototype = {
+    initialize: function() {
+    },
+	// add the function
+	isDatePast: function(strDate){
+    // Create GlideDateTime objects for the current date and the passed in date
+    var rightnow = new GlideDateTime();
+    var testdate = new GlideDateTime(strDate);
+    
+    // If the testdate is before rightnow, return true, else return false
+    if (testdate.before(rightnow)) {
+      return true;
+    }
+    else {
+      return false;
+    }
+  },
+	
+	isDateToday: function(strDate){
+    
+    // Create GlideDateTime objects for the current date and the passed in date
+    var rightnow = new GlideDateTime();
+    var testdate = new GlideDateTime(strDate);
+    // Get the date portion of rightnow and testdate (no timestamp)
+    var today = rightnow.getLocalDate();
+    var istoday = testdate.getLocalDate();
+  
+    // Compare today and istoday to see if they are the same day
+    if(today.compareTo(istoday) == 0){
+      return true;
+    }
+    else {
+      return false;
+    }
+  },
+
+    type: 'DemoItUtils'
+};]]></script>
+        <sys_class_name>sys_script_include</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2023-06-27 14:31:00</sys_created_on>
+        <sys_id>fd88de7f97a721109bbd3247f053af1f</sys_id>
+        <sys_mod_count>1</sys_mod_count>
+        <sys_name>DemoItUtils</sys_name>
+        <sys_package display_value="Now-Utah-Demo" source="x_750177_now_utah">fa97218f976f21109bbd3247f053afa3</sys_package>
+        <sys_policy>read</sys_policy>
+        <sys_scope display_value="Now-Utah-Demo">fa97218f976f21109bbd3247f053afa3</sys_scope>
+        <sys_update_name>sys_script_include_fd88de7f97a721109bbd3247f053af1f</sys_update_name>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2023-06-27 14:52:42</sys_updated_on>
+    </sys_script_include>
+</record_update>
