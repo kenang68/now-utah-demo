@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="sysevent_register">
+    <sysevent_register action="INSERT_OR_UPDATE">
+        <caller_access/>
+        <description>This event is fired for each overdue Demo Task record due in the 24 hours</description>
+        <event_name>x_750177_now_utah.dueSoonDemoTasks</event_name>
+        <fired_by>Scheduled Script Execution - Find Demo Tasks Due Soon</fired_by>
+        <queue/>
+        <suffix>dueSoonDemoTasks</suffix>
+        <sys_class_name>sysevent_register</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2023-07-06 14:27:39</sys_created_on>
+        <sys_id>899de03697bb21109bbd3247f053afd9</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name>x_750177_now_utah.dueSoonDemoTasks</sys_name>
+        <sys_package display_value="Now-Utah-Demo" source="x_750177_now_utah">fa97218f976f21109bbd3247f053afa3</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="Now-Utah-Demo">fa97218f976f21109bbd3247f053afa3</sys_scope>
+        <sys_update_name>sysevent_register_899de03697bb21109bbd3247f053afd9</sys_update_name>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2023-07-06 14:27:39</sys_updated_on>
+        <table>x_750177_now_utah_demo</table>
+    </sysevent_register>
+</record_update>
