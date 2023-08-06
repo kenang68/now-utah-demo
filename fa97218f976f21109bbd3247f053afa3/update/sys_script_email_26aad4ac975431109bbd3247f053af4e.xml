@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="sys_script_email">
+    <sys_script_email action="INSERT_OR_UPDATE">
+        <name>CountOverdueDemoTasksAssignedTo</name>
+        <new_lines_to_html>false</new_lines_to_html>
+        <script><![CDATA[(function runMailScript(/* GlideRecord */ current, /* TemplatePrinter */ template,
+          /* Optional EmailOutbound */ email, /* Optional GlideRecord */ email_action,
+          /* Optional GlideRecord */ event) {
+
+          // Add your code here
+
+	// Construct a GlideRecord query to find all NeedIt Task records with Due date
+	// field values in the past for the same Assigned to.  The records cannot be in the
+	// Closed state.
+	var rightNow = new GlideDateTime();
+  
+	var overdueNITasks = new GlideRecord('x_750177_now_utah_demo');
+	overdueNITasks.addQuery('u_when_needed','<=',rightNow);
+	overdueNITasks.addQuery('state','!=',3);
+	overdueNITasks.addQuery('assigned_to',current.assigned_to);
+  
+	overdueNITasks.query();
+
+	var count = 0;
+	while(overdueNITasks.next()){
+		count++;
+	}
+  
+	// Print to the Message field on a notification 
+	if (count > 1)
+		template.print("In addition to this overdue Demo Task, you have " + (count - 1) + " more overdue Demo Tasks.");
+
+})(current, template, email, email_action, event);]]></script>
+        <sys_class_name>sys_script_email</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2023-07-24 09:53:58</sys_created_on>
+        <sys_id>26aad4ac975431109bbd3247f053af4e</sys_id>
+        <sys_mod_count>8</sys_mod_count>
+        <sys_name>CountOverdueDemoTasksAssignedTo</sys_name>
+        <sys_package display_value="Now-Utah-Demo" source="x_750177_now_utah">fa97218f976f21109bbd3247f053afa3</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="Now-Utah-Demo">fa97218f976f21109bbd3247f053afa3</sys_scope>
+        <sys_update_name>sys_script_email_26aad4ac975431109bbd3247f053af4e</sys_update_name>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2023-07-24 12:15:47</sys_updated_on>
+    </sys_script_email>
+</record_update>
